@@ -28,3 +28,6 @@ class TestMarsRover:
 
     def test_rotate_right_returns_0_0_E(self, mars_rover):
         assert mars_rover.execute("R") == "0:0:E"
+
+    def test_rotate_right_twice_returns_0_0_S(self, mars_rover):
+        assert mars_rover.execute("RR") == "0:0:S"
