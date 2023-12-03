@@ -6,7 +6,7 @@ class MarsRover:
 
     def execute(self, command: str) -> str:
         if "L" in command:
-            return "0:0:" + self.directions[-len(command)]
+            return "0:0:" + self.directions[-len(command) % len(self.directions)]
 
         direction = self.directions[0]
         y_axis = 0
