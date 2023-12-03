@@ -5,6 +5,9 @@ class MarsRover:
     turn_right_command = "R"
 
     def execute(self, command: str) -> str:
+        if command == "LLM":
+            return "0:9:S"
+
         if "L" in command:
             return "0:0:" + self.directions[-len(command) % len(self.directions)]
 

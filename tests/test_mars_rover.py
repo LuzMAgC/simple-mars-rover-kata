@@ -69,3 +69,9 @@ class TestMarsRover:
     ])
     def test_rotate_left_return(self, mars_rover, command, expected):
         assert mars_rover.execute(command) == expected
+
+    @pytest.mark.parametrize("command, expected", [
+        ("LLM", "0:9:S")
+    ])
+    def test_moving_on_y_axis_after_turning_left_and_right(self, mars_rover, command, expected):
+        assert mars_rover.execute(command) == expected
