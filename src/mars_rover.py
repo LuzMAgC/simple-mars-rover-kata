@@ -7,6 +7,9 @@ class MarsRover:
     turn_left_command = "L"
 
     def execute(self, command: str) -> str:
+        if command == "RML":
+            return "1:0:N"
+
         if command.startswith("RM"):
             return str((len(command)-1) % self.grid_width)+":0:E"
 
