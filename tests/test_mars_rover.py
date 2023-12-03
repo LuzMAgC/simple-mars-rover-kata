@@ -55,7 +55,8 @@ class TestMarsRover:
         ("MRRM", "0:0:S"),
         ("MMRRM", "0:1:S"),
         ("RRMMRRM", "0:9:N"),
-        ("MMMMMMMMMMMMRRMMMMMMMMMMMMMR", "0:9:W")
+        ("MMMMMMMMMMMMRRMMMMMMMMMMMMMR", "0:9:W"),
+        ("MMRRMRRMMMMRRMMRRMRRR", "0:4:W")
     ])
     def test_moving_back_the_way_it_came(self, mars_rover, command, expected):
         assert mars_rover.execute(command) == expected
