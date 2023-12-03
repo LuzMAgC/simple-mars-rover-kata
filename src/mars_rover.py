@@ -7,20 +7,9 @@ class MarsRover:
     turn_left_command = "L"
 
     def execute(self, command: str) -> str:
-        if command == "RML":
-            return "1:0:N"
-
-        if command == "RMMMMMMMLMMMRMMMMLMMMML":
-            return "1:7:W"
-
-        if command == "LLLMMMLMMMRRMMMMLMMMML":
-            return "7:9:N"
-
-        if command.startswith("RM"):
-            return str((len(command)-1) % self.grid_width)+":0:E"
-
         direction = self.directions[0]
         y_axis = 0
+        x_axis = 0
 
         for instruction in command:
             if instruction == self.turn_right_command:
@@ -32,7 +21,9 @@ class MarsRover:
             if instruction == self.move_forward_command:
                 if direction == self.directions[0]:
                     y_axis += 1
-                else:
+                elif direction == self.directions[2]:
                     y_axis -= 1
+                else:
+                    x_axis += 1
 
-        return "0:" + str(y_axis % self.grid_height) + ":" + direction
+        return str(x_axis % self.grid_width) + ":" + str(y_axis % self.grid_height) + ":" + direction
