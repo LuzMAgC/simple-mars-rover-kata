@@ -17,3 +17,6 @@ class TestMarsRover:
     ])
     def test_command_forward_return(self, mars_rover, command, expected):
         assert mars_rover.execute(command) == expected
+
+    def test_command_forward_to_end_of_grid_should_wrap_around(self, mars_rover):
+        assert mars_rover.execute("MMMMMMMMMM") == "0:0:N"
