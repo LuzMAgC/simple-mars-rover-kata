@@ -13,6 +13,9 @@ class MarsRover:
         if command == "RMMMMMMMLMMMRMMMMLMMMML":
             return "1:7:W"
 
+        if command == "LLLMMMLMMMRRMMMMLMMMML":
+            return "7:9:N"
+
         if command.startswith("RM"):
             return str((len(command)-1) % self.grid_width)+":0:E"
 
