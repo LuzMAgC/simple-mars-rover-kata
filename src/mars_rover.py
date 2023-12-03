@@ -2,14 +2,7 @@ class MarsRover:
     direction = ["N", "E", "S", "W"]
 
     def execute(self, command: str) -> str:
-        if command == "RRRRM":
-            return "0:1:N"
-        if command == "MR":
-            return "0:1:E"
-        if command == "MRRRRMRR":
-            return "0:2:S"
+        y_axis = command.count("M") % 10
+        direction = self.direction[command.count("R") % len(self.direction)]
 
-        if "R" in command:
-            return "0:0:" + self.direction[len(command) % len(self.direction)]
-
-        return "0:"+str(len(command) % 10)+":N"
+        return "0:" + str(y_axis) + ":" + direction
