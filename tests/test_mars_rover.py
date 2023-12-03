@@ -95,6 +95,12 @@ class TestMarsRover:
         assert mars_rover.execute(command) == expected
 
     @pytest.mark.parametrize("command, expected", [
+        ("LM", "9:0:W")
+    ])
+    def test_moving_west(self, mars_rover, command, expected):
+        assert mars_rover.execute(command) == expected
+
+    @pytest.mark.parametrize("command, expected", [
         ("RML", "1:0:N"),
         ("RMMMMMMMLMMMRMMMMLMMMML", "1:7:W"),
         ("LLLMMMLMMMRRMMMMLMMMML", "7:9:N")
