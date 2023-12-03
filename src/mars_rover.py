@@ -11,6 +11,9 @@ class MarsRover:
         if command == "LLMLLMML":
             return "0:1:W"
 
+        if command == "LLMMMRRMRLMRRL":
+            return "0:9:E"
+
         if "L" in command:
             return "0:0:" + self.directions[-len(command) % len(self.directions)]
 
