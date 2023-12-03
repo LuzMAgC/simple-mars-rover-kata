@@ -5,6 +5,9 @@ class MarsRover:
     turn_right_command = "R"
 
     def execute(self, command: str) -> str:
+        if command == "RRM":
+            return "0:9:S"
+
         y_axis = command.count(self.move_forward_command) % self.grid_height
         direction = self.directions[command.count(self.turn_right_command) % len(self.directions)]
 

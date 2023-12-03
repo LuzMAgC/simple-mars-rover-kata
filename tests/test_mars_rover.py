@@ -42,3 +42,9 @@ class TestMarsRover:
     ])
     def test_turn_around_and_forward(self, mars_rover, command, expected):
         assert mars_rover.execute(command) == expected
+
+    @pytest.mark.parametrize("command, expected", [
+        ("RRM", "0:9:S")
+    ])
+    def test_moving_south(self, mars_rover, command, expected):
+        assert mars_rover.execute(command) == expected
