@@ -31,3 +31,6 @@ class TestMarsRover:
 
     def test_rotate_right_twice_returns_0_0_S(self, mars_rover):
         assert mars_rover.execute("RR") == "0:0:S"
+
+    def test_rotate_right_three_times_returns_0_0_W(self, mars_rover):
+        assert mars_rover.execute("RRR") == "0:0:W"
