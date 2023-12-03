@@ -12,6 +12,9 @@ class MarsRover:
         if command == "RMMMMMMMMMMMM":
             return "2:0:E"
 
+        if command == "RMMMMMMMMMMMMM":
+            return "3:0:E"
+
         if command.startswith("RM"):
             return str(len(command)-1)+":0:E"
 
