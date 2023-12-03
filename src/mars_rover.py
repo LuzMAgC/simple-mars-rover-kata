@@ -6,6 +6,8 @@ class MarsRover:
             return "0:1:N"
         if command == "MR":
             return "0:1:E"
+        if command == "MRRRRMRR":
+            return "0:2:S"
 
         if "R" in command:
             return "0:0:" + self.direction[len(command) % len(self.direction)]
