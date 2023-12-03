@@ -26,11 +26,10 @@ class TestMarsRover:
     def test_command_forward_after_wrapping_around_return(self, mars_rover, command, expected):
         assert mars_rover.execute(command) == expected
 
-    def test_rotate_right_returns_0_0_E(self, mars_rover):
-        assert mars_rover.execute("R") == "0:0:E"
-
-    def test_rotate_right_twice_returns_0_0_S(self, mars_rover):
-        assert mars_rover.execute("RR") == "0:0:S"
-
-    def test_rotate_right_three_times_returns_0_0_W(self, mars_rover):
-        assert mars_rover.execute("RRR") == "0:0:W"
+    @pytest.mark.parametrize("command, expected", [
+        ("R", "0:0:E"),
+        ("RR", "0:0:S"),
+        ("RRR", "0:0:W")
+    ])
+    def test_rotate_right_return(self, mars_rover, command, expected):
+        assert mars_rover.execute(command) == expected
