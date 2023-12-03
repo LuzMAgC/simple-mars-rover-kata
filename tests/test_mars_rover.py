@@ -19,3 +19,12 @@ class TestMarsRover:
 
         # Then
         assert mars_rover.execute("M") == "0:1:N"
+
+    def test_command_forward_twice_returns_0_2_N(self):
+        # Given
+        mars_rover = MarsRover()
+
+        # When
+
+        # Then
+        assert mars_rover.execute("MM") == "0:2:N"
