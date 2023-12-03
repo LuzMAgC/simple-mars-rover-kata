@@ -106,7 +106,8 @@ class TestMarsRover:
         ("RML", "1:0:N"),
         ("RMMMMMMMLMMMRMMMMLMMMML", "1:7:W"),
         ("LLLMMMLMMMRRMMMMLMMMML", "7:9:N"),
-        ("LMR", "9:0:N")
+        ("LMR", "9:0:N"),
+        ("LMMRMMLMRRMMMMMRMLLM", "1:2:N")
     ])
     def test_command_moving_around(self, mars_rover, command, expected):
         assert mars_rover.execute(command) == expected
