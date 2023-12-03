@@ -22,7 +22,8 @@ class TestMarsRover:
         assert mars_rover.execute("MMMMMMMMMM") == "0:0:N"
 
     @pytest.mark.parametrize("command, expected", [
-        ("MMMMMMMMMMM", "0:1:N")
+        ("MMMMMMMMMMM", "0:1:N"),
+        ("MMMMMMMMMMMM", "0:2:N")
     ])
     def test_command_forward_after_wrapping_around_return(self, mars_rover, command, expected):
         assert mars_rover.execute(command) == expected
