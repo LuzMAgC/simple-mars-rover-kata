@@ -5,15 +5,17 @@ class MarsRover:
     turn_right_command = "R"
 
     def execute(self, command: str) -> str:
-        if command == "MRRM":
-            return "0:0:S"
-        if command == "MMRRM":
-            return "0:1:S"
-        if command == "RRMMRRM":
-            return "0:9:N"
+        direction = self.directions[0]
+        y_axis = 0
 
-        y_axis = ((-1 if command.startswith("RRM") else 1) *
-                  command.count(self.move_forward_command) % self.grid_height)
-        direction = self.directions[command.count(self.turn_right_command) % len(self.directions)]
+        for instruction in command:
+            if instruction == "R":
+                direction = self.directions[(self.directions.index(direction) + 1) % len(self.directions)]
 
-        return "0:" + str(y_axis) + ":" + direction
+            if instruction == "M":
+                if direction == "N":
+                    y_axis += 1
+                else:
+                    y_axis -= 1
+
+        return "0:" + str(y_axis % self.grid_height) + ":" + direction
