@@ -52,7 +52,8 @@ class TestMarsRover:
         assert mars_rover.execute(command) == expected
 
     @pytest.mark.parametrize("command, expected", [
-        ("MRRM", "0:0:S")
+        ("MRRM", "0:0:S"),
+        ("MMRRM", "0:1:S")
     ])
     def test_moving_back_the_way_it_came(self, mars_rover, command, expected):
         assert mars_rover.execute(command) == expected
