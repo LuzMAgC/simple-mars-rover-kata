@@ -1,22 +1,14 @@
 class MarsRover:
     directions = ["N", "E", "S", "W"]
     grid_height = 10
+    grid_width = 10
     move_forward_command = "M"
     turn_right_command = "R"
     turn_left_command = "L"
 
     def execute(self, command: str) -> str:
-        if command == "RMMMMMMMMMMM":
-            return "1:0:E"
-
-        if command == "RMMMMMMMMMMMM":
-            return "2:0:E"
-
-        if command == "RMMMMMMMMMMMMM":
-            return "3:0:E"
-
         if command.startswith("RM"):
-            return str(len(command)-1)+":0:E"
+            return str((len(command)-1) % self.grid_width)+":0:E"
 
         direction = self.directions[0]
         y_axis = 0
