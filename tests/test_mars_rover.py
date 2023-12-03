@@ -28,3 +28,12 @@ class TestMarsRover:
 
         # Then
         assert mars_rover.execute("MM") == "0:2:N"
+
+    def test_command_forward_three_times_returns_0_3_N(self):
+        # Given
+        mars_rover = MarsRover()
+
+        # When
+
+        # Then
+        assert mars_rover.execute("MMM") == "0:3:N"
