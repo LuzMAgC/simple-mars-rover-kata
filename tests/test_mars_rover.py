@@ -107,7 +107,7 @@ class TestMarsRover:
         ("RMMMMMMMLMMMRMMMMLMMMML", "1:7:W"),
         ("LLLMMMLMMMRRMMMMLMMMML", "7:9:N"),
         ("LMR", "9:0:N"),
-        ("LMMRMMLMRRMMMMMRMLLM", "1:2:N"),
+        ("LMMRMMLMRRMMMMMRMLLM", "2:2:N"),
         ("LMLMLMLMR", "0:0:E")
     ])
     def test_command_moving_around(self, mars_rover, command, expected):
