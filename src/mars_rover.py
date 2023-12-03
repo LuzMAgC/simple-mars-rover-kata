@@ -3,29 +3,21 @@ class MarsRover:
     grid_height = 10
     move_forward_command = "M"
     turn_right_command = "R"
+    turn_left_command = "L"
 
     def execute(self, command: str) -> str:
-        if command == "LLM":
-            return "0:9:S"
-
-        if command == "LLMLLMML":
-            return "0:1:W"
-
-        if command == "LLMMMRRMRLMRRL":
-            return "0:9:E"
-
-        if "L" in command:
-            return "0:0:" + self.directions[-len(command) % len(self.directions)]
-
         direction = self.directions[0]
         y_axis = 0
 
         for instruction in command:
-            if instruction == "R":
+            if instruction == self.turn_right_command:
                 direction = self.directions[(self.directions.index(direction) + 1) % len(self.directions)]
 
-            if instruction == "M":
-                if direction == "N":
+            if instruction == self.turn_left_command:
+                direction = self.directions[(self.directions.index(direction) - 1) % len(self.directions)]
+
+            if instruction == self.move_forward_command:
+                if direction == self.directions[0]:
                     y_axis += 1
                 else:
                     y_axis -= 1
