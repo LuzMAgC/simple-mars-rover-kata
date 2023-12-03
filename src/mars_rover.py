@@ -9,6 +9,9 @@ class MarsRover:
         if command == "RM":
             return "1:0:E"
 
+        if command == "RMM":
+            return "2:0:E"
+
         direction = self.directions[0]
         y_axis = 0
 
