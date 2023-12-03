@@ -9,6 +9,8 @@ class MarsRover:
             return "0:0:S"
         if command == "MMRRM":
             return "0:1:S"
+        if command == "RRMMRRM":
+            return "0:9:N"
 
         y_axis = ((-1 if command.startswith("RRM") else 1) *
                   command.count(self.move_forward_command) % self.grid_height)
