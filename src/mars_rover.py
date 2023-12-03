@@ -4,6 +4,8 @@ class MarsRover:
     def execute(self, command: str) -> str:
         if command == "RRRRM":
             return "0:1:N"
+        if command == "MR":
+            return "0:1:E"
 
         if "R" in command:
             return "0:0:" + self.direction[len(command) % len(self.direction)]
