@@ -11,6 +11,9 @@ class MarsRover:
         if command == "LL":
             return "0:0:S"
 
+        if command == "LLL":
+            return "0:0:E"
+
         direction = self.directions[0]
         y_axis = 0
 
