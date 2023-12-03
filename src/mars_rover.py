@@ -7,14 +7,8 @@ class MarsRover:
     turn_left_command = "L"
 
     def execute(self, command: str) -> str:
-        if command == "LM":
-            return "9:0:W"
-
-        if command == "LMM":
-            return "8:0:W"
-
-        if command == "LMMMM":
-            return "6:0:W"
+        if command.startswith("LM"):
+            return str(-(len(command)-1) % self.grid_width) + ":0:W"
 
         direction = self.directions[0]
         y_axis = 0
