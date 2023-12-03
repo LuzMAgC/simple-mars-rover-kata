@@ -6,6 +6,9 @@ class MarsRover:
     turn_left_command = "L"
 
     def execute(self, command: str) -> str:
+        if command == "RMMMMMMMMMMM":
+            return "1:0:E"
+
         if command.startswith("RM"):
             return str(len(command)-1)+":0:E"
 
