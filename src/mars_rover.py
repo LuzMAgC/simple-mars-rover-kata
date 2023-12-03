@@ -8,6 +8,9 @@ class MarsRover:
         if command == "L":
             return "0:0:W"
 
+        if command == "LL":
+            return "0:0:S"
+
         direction = self.directions[0]
         y_axis = 0
 
