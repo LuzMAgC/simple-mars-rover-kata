@@ -13,10 +13,10 @@ class MarsRover:
 
         for instruction in command:
             if instruction == self.turn_right_command:
-                direction = self.directions[(self.directions.index(direction) + 1) % len(self.directions)]
+                direction = self.__turn_right(direction)
 
             if instruction == self.turn_left_command:
-                direction = self.directions[(self.directions.index(direction) - 1) % len(self.directions)]
+                direction = self.__turn_left(direction)
 
             if instruction == self.move_forward_command:
                 if direction == self.directions[0]:
@@ -29,3 +29,9 @@ class MarsRover:
                     x_axis -= 1
 
         return str(x_axis % self.grid_width) + ":" + str(y_axis % self.grid_height) + ":" + direction
+
+    def __turn_left(self, direction: str) -> str:
+        return self.directions[(self.directions.index(direction) - 1) % len(self.directions)]
+
+    def __turn_right(self, direction: str) -> str:
+        return self.directions[(self.directions.index(direction) + 1) % len(self.directions)]
