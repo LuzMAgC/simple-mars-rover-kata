@@ -1,10 +1,15 @@
+from src.grid import Grid
+
+
 class MarsRover:
+    __grid: Grid
     directions = ["N", "E", "S", "W"]
-    grid_height = 10
-    grid_width = 10
     move_forward_command = "M"
     turn_right_command = "R"
     turn_left_command = "L"
+
+    def __init__(self, grid: Grid):
+        self.__grid = grid
 
     def execute(self, command: str) -> str:
         direction = self.directions[0]
@@ -28,7 +33,7 @@ class MarsRover:
                 else:
                     x_axis -= 1
 
-        return str(x_axis % self.grid_width) + ":" + str(y_axis % self.grid_height) + ":" + direction
+        return str(x_axis % self.__grid.width()) + ":" + str(y_axis % self.__grid.height()) + ":" + direction
 
     def __turn_left(self, direction: str) -> str:
         return self.directions[(self.directions.index(direction) - 1) % len(self.directions)]

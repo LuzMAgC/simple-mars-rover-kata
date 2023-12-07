@@ -1,11 +1,12 @@
 import pytest
+from src.grid import Grid
 from src.mars_rover import MarsRover
 
 
 class TestMarsRover:
     @pytest.fixture
     def mars_rover(self):
-        return MarsRover()
+        return MarsRover(Grid.make_default())
 
     def test_landing_position_returns_0_0_N(self, mars_rover):
         assert mars_rover.execute("") == "0:0:N"
